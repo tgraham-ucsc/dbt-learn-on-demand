@@ -9,13 +9,14 @@ models:
         columns: 
           - name: customer_id
             description: The primary key for customers.
+            tests:
+              - unique
+              - not_null
           - name: first_name
             description: Customer first name
           - name: last_name
             description: Customer last name  
-            tests:
-              - unique
-              - not_null
+
 
       - name: stg_orders
         description: Staged order records from our jaffle shop app.
