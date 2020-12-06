@@ -1,8 +1,6 @@
 version: 2
 
 models:
-      - name: dim_customers
-        description: Customer Dimension model
 
       - name: stg_customers
         description: Staged customer records from our jaffle shop app
