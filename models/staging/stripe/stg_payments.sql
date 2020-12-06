@@ -4,5 +4,4 @@ select id as payment_id,
        status, 
        amount / 100 as amount,
        created as created_dt
-from 
-"RAW"."STRIPE"."PAYMENT"
+from {{source('stripe','payment')}}

@@ -1,0 +1,58 @@
+version: 2
+
+models:
+      - name: dim_customers
+        description: Customer Dimension model
+
+      - name: stg_customers
+        description: Staged customer records from our jaffle shop app
+        columns: 
+          - name: customer_id
+            description: The primary key for customers.
+          - name: first_name
+            description: Customer first name
+          - name: last_name
+            description: Customer last name  
+            tests:
+              - unique
+              - not_null
+
+      - name: stg_orders
+        description: Staged order records from our jaffle shop app.
+        columns:
+          - name: order_id
+            description: The primary key for orders.
+          - name: status
+            description: '{{ doc("order_status") }}'
+            tests:
+              - accepted_values:
+                  values:
+                    - completed
+                    - shipped
+                    - returned
+                    - placed
+                    - return_pending
+          - name: customer_id
+            tests:
+              - relationships:
+                  to: ref('stg_customers')
+                  field: customer_id
+
+      - name: stg_payments
+        description: Payment data from Stripe
+        columns:
+          - name: payment_id
+            description: The primary key for payments
+          - name: order_id
+            description: Corresponding order id for the payment
+          - name: payment_method
+            description: '{{ doc("payment_method") }}'   
+          - name: status
+            tests:
+              - accepted_values:
+                  values:
+                    - success
+                    - fail
+          - name: amount
+            description: Amount stored in cents converted to dollars in stg_payments model         
+                  
