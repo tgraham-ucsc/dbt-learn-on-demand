@@ -1,0 +1,7 @@
+version: 2
+
+models:
+      - name: dim_customers
+        description: Customer Dimension model
+      - name: fct_orders
+        description: Fact table for orders
