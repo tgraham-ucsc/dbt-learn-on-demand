@@ -36,12 +36,8 @@ models:
     staging:
         +materialized: view
     marts:
-        +materialized: table
-  strip:
-    staging:
-        +materialized view
-    marts:
-        +materialzed table
+        core:
+            +materialized: table
 
 
 
