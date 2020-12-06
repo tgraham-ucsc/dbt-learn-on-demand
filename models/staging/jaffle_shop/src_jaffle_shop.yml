@@ -7,9 +7,12 @@ sources:
       tables:
         - name: customers
           description: Raw customers data.
-          tests:
-            - unique
-            - not_null
+          columns: 
+            - name: id
+              description: Primary Key for customers
+              tests:
+                - unique
+                - not_null
 
         - name: orders
           description: Raw orders data
