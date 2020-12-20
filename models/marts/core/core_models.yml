@@ -5,3 +5,5 @@ models:
         description: Customer Dimension model
       - name: fct_orders
         description: Fact table for orders
+      - name: int_orders__pivoted
+        description: Pivited Orders based on payment type
