@@ -38,8 +38,5 @@ models:
     marts:
         core:
             +materialized: table
-# Adding the snowflake spend model            
-  snowflake_spend:
-    enabled: true
 
 
